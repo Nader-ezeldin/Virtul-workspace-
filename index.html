@@ -16,8 +16,8 @@
   :root{
     --bg:#0a0c10; --bg-2:#0f131a; --panel:rgba(255,255,255,.03); --panel-border:rgba(255,255,255,.08);
     --ink:#e7ebf1; --ink-dim:#8a93a3; --ink-faint:#5b6474;
-    --accent:#16a34a; /* Sadagaat Green */
-    --accent-2:#3b82f6; /* Sadagaat Blue Accent */
+    --accent:#16a34a; /* Green */
+    --accent-2:#3b82f6; /* Blue Accent */
     --amber:#f5a524; --rose:#fb7185; --violet:#a78bfa;
     --grid-line:rgba(255,255,255,.025);
   }
@@ -143,7 +143,7 @@
 
   <aside class="hidden md:flex md:w-64 flex-col shrink-0 glass border-r h-screen sticky top-0 overflow-y-auto" style="border-color:var(--panel-border)">
     <div class="px-5 py-5 flex items-center gap-2.5">
-      <img src="https://sadagaat.com:9090/api/v1/projects/6268/image" class="w-9 h-9 object-contain shrink-0" alt="Workspace Logo">
+     
       <div>
         <p class="font-display font-semibold text-sm leading-none">Workspace</p>
         <p class="font-mono text-[10px] ink-faint mt-0.5" x-text="user.subOffice || 'Central Hub'"></p>
@@ -560,7 +560,7 @@
               <div class="space-y-3.5">
                 <div>
                   <label class="text-[11px] ink-faint block mb-1">File Title</label>
-                  <input x-model="quickShare.title" placeholder="e.g. Q3 Sadagaat Financials" class="w-full glass rounded-lg px-3 py-2 text-xs bg-transparent text-white focus:border-cyan-400">
+                  <input x-model="quickShare.title" placeholder="e.g. Q3  Financials" class="w-full glass rounded-lg px-3 py-2 text-xs bg-transparent text-white focus:border-cyan-400">
                 </div>
                 <div>
                   <label class="text-[11px] ink-faint block mb-1">Comments / Description</label>
@@ -579,7 +579,7 @@
                 
                 <div>
                   <label class="text-[11px] ink-faint block mb-1">Display Filename</label>
-                  <input x-model="quickShare.fileName" placeholder="e.g. Q3_Sadagaat_Audit.xlsx" class="w-full glass rounded-lg px-3 py-2 text-xs bg-transparent text-white focus:border-cyan-400">
+                  <input x-model="quickShare.fileName" placeholder="e.g. Q3_Audit.xlsx" class="w-full glass rounded-lg px-3 py-2 text-xs bg-transparent text-white focus:border-cyan-400">
                 </div>
 
                 <button @click="postQuickShare" :disabled="!quickShare.title || !quickShare.fileUrl" class="w-full py-2.5 rounded-lg text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-700 disabled:opacity-40 transition flex items-center justify-center gap-1.5 shadow-lg shadow-emerald-900/20">
@@ -1096,8 +1096,8 @@ const MockDB = (() => {
         { email: 'staff@workspace.dev', name: 'Al-Hassan', role: 'Staff', status: 'Active', addedAt: iso(), lastSeen: iso(), subOffice: 'Khartoum HQ', PIN: '1111' }
       ],
       offices: [
-        { SubOfficeName: 'Omdurman Office', Location: 'Omdurman, Khartoum, Sudan', WifiSSID: 'Sadagaat_Omdurman', WifiPass: 'SadagaatOmd!', Phone: '+249 123 456 789', Status: 'Operational' },
-        { SubOfficeName: 'Khartoum HQ', Location: 'Khartoum Central, Sudan', WifiSSID: 'Sadagaat_HQ', WifiPass: 'SadagaatHQ!', Phone: '+249 987 654 321', Status: 'Operational' }
+        { SubOfficeName: 'Omdurman Office', Location: 'Omdurman, Khartoum, Sudan', WifiSSID: '_Omdurman', WifiPass: 'Omd!', Phone: '+249 123 456 789', Status: 'Operational' },
+        { SubOfficeName: 'Khartoum HQ', Location: 'Khartoum Central, Sudan', WifiSSID: ' _HQ', WifiPass: ' HQ!', Phone: '+249 987 654 321', Status: 'Operational' }
       ],
       tasks: [
         { id: uid(), title: 'Audit server load parameters', description: 'Monitor high API spike handlers during batch sync.', status: 'In Progress', priority: 'High', assignedTo: me.email, dueDate: d(1), createdBy: me.email, createdAt: iso(), updatedAt: iso() },
@@ -1105,14 +1105,14 @@ const MockDB = (() => {
       ],
       budgets: [
         { id: uid(), category: 'Hosting', description: 'Google Cloud Platform costs', amount: 120, type: 'Expense', date: d(-4), createdBy: 'admin@workspace.dev', createdAt: iso() },
-        { id: uid(), category: 'Sadagaat Grants', description: 'Direct project donation funding', amount: 1500, type: 'Income', date: d(-1), createdBy: 'staff@workspace.dev', createdAt: iso() }
+        { id: uid(), category: '  Grants', description: 'Direct project donation funding', amount: 1500, type: 'Income', date: d(-1), createdBy: 'staff@workspace.dev', createdAt: iso() }
       ],
       chat: [
         { id: uid(), email: 'staff@workspace.dev', name: 'Al-Hassan', message: 'I have updated the hardware assets database parameters! 👍', createdAt: iso() }
       ],
       fileRequests: [
         { id: uid(), serial: 'REQ-1001', title: 'Q3 Architectural blueprints', description: 'Provide the Lucichart PNG export layout.', requestedFrom: me.email, requestedBy: 'staff@workspace.dev', status: 'Pending', fileUrl: '', fileName: '', uploadedBy: '', createdAt: iso(), updatedAt: iso() },
-        { id: uid(), serial: 'SHR-1002', title: 'Sadagaat Annual Report 2025', description: 'Shared direct document for board members audit.', requestedFrom: 'everyone', requestedBy: 'staff@workspace.dev', status: 'Fulfilled', fileUrl: 'https://drive.google.com', fileName: 'Annual_Report_2025.pdf', uploadedBy: 'staff@workspace.dev', createdAt: d(-2) + 'T14:32:00.000Z', updatedAt: d(-2) + 'T14:32:00.000Z' }
+        { id: uid(), serial: 'SHR-1002', title: '  Annual Report 2025', description: 'Shared direct document for board members audit.', requestedFrom: 'everyone', requestedBy: 'staff@workspace.dev', status: 'Fulfilled', fileUrl: 'https://drive.google.com', fileName: 'Annual_Report_2025.pdf', uploadedBy: 'staff@workspace.dev', createdAt: d(-2) + 'T14:32:00.000Z', updatedAt: d(-2) + 'T14:32:00.000Z' }
       ],
       calendarEvents: [
         { id: uid(), title: 'Monthly Strategy Sync', date: d(1), time: '14:30', type: 'Meeting' }
@@ -1655,7 +1655,7 @@ function dashboardApp() {
       if (this.mockMode) {
         setTimeout(() => {
           this.fulfillModal.driveFiles = [
-            { id: 'drv1', name: 'Sadagaat Q3 Internal blueprints.pdf', url: 'https://drive.google.com', mimeType: 'application/pdf' },
+            { id: 'drv1', name: '  Q3 Internal blueprints.pdf', url: 'https://drive.google.com', mimeType: 'application/pdf' },
             { id: 'drv2', name: 'Weekly Objectives Draft.csv', url: 'https://drive.google.com', mimeType: 'text/csv' }
           ];
           this.fulfillModal.loadingDrive = false;
